@@ -1,0 +1,13 @@
+venv/
+.env
+__pycache__/
+*.pyc
+
+*.duckdb
+*.duckdb.wal
+
+data/raw/*
+data/exports/*
+
+.pytest_cache/
+.streamlit/
