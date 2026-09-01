@@ -11,7 +11,7 @@
             "alias": "fpl_warehouse",
             "type": "file",
             "path": "./data/fpl_warehouse.duckdb",
-            "attached": true,
+            "attached": false,
             "readOnly": false
         }
     ],
