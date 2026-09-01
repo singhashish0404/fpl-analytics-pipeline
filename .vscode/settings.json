@@ -1,0 +1,19 @@
+{
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "*.parquet": "duckdb.dataFileViewer",
+        "*.csv": "duckdb.dataFileViewer",
+        "*.tsv": "duckdb.dataFileViewer",
+        "*.xlsx": "duckdb.dataFileViewer"
+    },
+    "duckdb.databases": [
+        {
+            "alias": "fpl_warehouse",
+            "type": "file",
+            "path": "./data/fpl_warehouse.duckdb",
+            "attached": true,
+            "readOnly": false
+        }
+    ],
+    "duckdb.defaultDatabase": "fpl_warehouse"
+}
