@@ -15,18 +15,12 @@ RAW_DIR = Path("data/raw")
 # Logger
 logger = get_logger(__name__)
 
-
+#return true if file does not exist or older than the specified time
 def is_stale(filepath, hours=24):
-    """
-    Return True if the file does not exist
-    or is older than the specified number of hours.
-    """
-
+    
     if not filepath.exists():
         return True
-
     file_age = datetime.now().timestamp() - filepath.stat().st_mtime
-
     return file_age > hours * 3600
 
 
@@ -56,7 +50,6 @@ def extract_bootstrap():
         with open(raw_file, "r", encoding="utf-8") as f:
             data = json.load(f)
 
-    # Connect to DuckDB
     con = get_connection()
 
     # Create raw schema if it doesn't exist
@@ -67,17 +60,11 @@ def extract_bootstrap():
     teams = pd.DataFrame(data["teams"])
     events = pd.DataFrame(data["events"])
 
-    con.execute(
-        "CREATE OR REPLACE TABLE raw.players AS SELECT * FROM players"
-    )
+    con.execute("CREATE OR REPLACE TABLE raw.players AS SELECT * FROM players")
 
-    con.execute(
-        "CREATE OR REPLACE TABLE raw.teams AS SELECT * FROM teams"
-    )
+    con.execute("CREATE OR REPLACE TABLE raw.teams AS SELECT * FROM teams")
 
-    con.execute(
-        "CREATE OR REPLACE TABLE raw.events AS SELECT * FROM events"
-    )
+    con.execute("CREATE OR REPLACE TABLE raw.events AS SELECT * FROM events")
 
     logger.info(f"raw.players loaded: {len(players):,} rows")
     logger.info(f"raw.teams loaded: {len(teams):,} rows")
@@ -126,9 +113,7 @@ def extract_fixtures():
     fixtures = pd.DataFrame(data)
 
     # Load into DuckDB
-    con.execute(
-        "CREATE OR REPLACE TABLE raw.fixtures AS SELECT * FROM fixtures"
-    )
+    con.execute("CREATE OR REPLACE TABLE raw.fixtures AS SELECT * FROM fixtures")
 
     logger.info(f"raw.fixtures loaded: {len(fixtures):,} rows")
 
