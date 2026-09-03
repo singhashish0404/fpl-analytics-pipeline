@@ -60,7 +60,7 @@ def main():
             rows_rejected=0,
             error=str(e),
         )
-        logger.info(f"FPL PIPELINE FAILED : {e}")
+        logger.exception("FPL PIPELINE FAILED")
 
         raise
 
