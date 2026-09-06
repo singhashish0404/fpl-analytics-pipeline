@@ -1,0 +1,16 @@
+services:
+
+  fpl-pipeline:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+
+    container_name: fpl_pipeline
+
+    volumes:
+      - ../data:/app/data
+
+    environment:
+      PYTHONUNBUFFERED: "1"
+
+    restart: "no"

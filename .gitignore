@@ -1,5 +1,6 @@
 venv/
 .env
+
 __pycache__/
 *.pyc
 
@@ -11,3 +12,12 @@ data/exports/*
 
 .pytest_cache/
 .streamlit/
+
+# Airflow generated files
+airflow/logs/
+
+# Local VS Code settings
+.vscode/
+
+# Cache metadata
+CACHEDIR.TAG
