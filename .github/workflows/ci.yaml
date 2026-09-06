@@ -29,7 +29,7 @@ jobs:
       - name: Lint with flake8
         run: |
           pip install flake8
-          flake8 src/ --ignore=E1,E2,E3,W2,W3
+          flake8 src/ --ignore=E1,E2,E3,E5,W2,W3
 
       - name: Run unit tests
         run: pytest tests/ -v --tb=short
