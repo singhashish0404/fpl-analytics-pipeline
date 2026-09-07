@@ -13,6 +13,5 @@ FPL API → DuckDB RAW → Staging → Curated → Analytics
 - SQL
 - Airflow
 - Docker
-- Streamlit
 - pytest
 - GitHub Actions
